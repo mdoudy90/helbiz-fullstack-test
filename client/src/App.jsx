@@ -1,19 +1,8 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Table } from './components/Table';
-
-const VEHICLE_STATUS_DATA = gql`
-  query GetVehicleStatusData {
-    vehicles {
-      bike_id
-      lat
-      lon
-      is_reserved
-      is_disabled
-      vehicle_type
-    }
-  }
-`;
+import { Search } from './components/Search';
+import { VEHICLE_STATUS_DATA } from './utils/queries';
 
 export const App = () => {
   const { loading, error, data } = useQuery(VEHICLE_STATUS_DATA);
@@ -24,6 +13,7 @@ export const App = () => {
   return (
     <>
       {!!data ? <Table data={data} /> : null}
+      {/* <Search /> */}
     </>
   );
 };
