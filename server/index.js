@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
@@ -12,6 +14,10 @@ const PORT = process.env.PORT || 4000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => {
+    const bearerToken = req.headers.authorization || '';
+    return { bearerToken };
+  },
   dataSources: () => ({
     helbizAPI: new HelbizAPI(),
   }),
