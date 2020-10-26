@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type VehicleStatus {
-    id: ID!
+    bike_id: ID!
     lat: Float
     lon: Float
     is_reserved: Boolean
@@ -11,7 +11,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    vehicles(id: ID): [VehicleStatus]!
+    vehicles(bike_id: ID): [VehicleStatus]!
   }
 `;
 

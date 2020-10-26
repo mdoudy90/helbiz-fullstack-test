@@ -13,14 +13,19 @@ class HelbizAPI extends RESTDataSource {
       : [];
   }
 
-  vehicleStatusReducer(vehicle) {
+  async getAllVehicleStatusById(bike_id) {
+    const response = await this.getAllVehicleStatuses();
+    return response.filter((vehicle) => vehicle.bike_id === bike_id);
+  }
+
+  vehicleStatusReducer({ bike_id, lat, lon, is_reserved, is_disabled, vehicle_type }) {
     return {
-      id: vehicle.bike_id || '0000',
-      lat: vehicle.lat,
-      lon: vehicle.lon,
-      is_reserved: vehicle.is_reserved || false,
-      is_disabled: vehicle.is_disabled || false,
-      vehicle_type: vehicle.vehicle_type,
+      bike_id: bike_id || '0000',
+      lat,
+      lon,
+      is_reserved: is_reserved || false,
+      is_disabled: is_disabled || false,
+      vehicle_type,
     };
   }
 }
