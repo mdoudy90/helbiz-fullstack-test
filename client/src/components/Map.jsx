@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
-import { useQuery } from '@apollo/client';
-import { VEHICLE_STATUS_DATA } from '../utils/queries';
 import { GOOGLE_API_KEY } from '../../config';
 
 const MapMarker = ({ bike_id }) => {
@@ -12,8 +10,7 @@ const MapMarker = ({ bike_id }) => {
   );
 };
 
-export const Map = ({ center }) => {
-  const { data } = useQuery(VEHICLE_STATUS_DATA);
+export const Map = ({ center, data }) => {
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '105%', filter: 'grayscale(100%)' }}>

@@ -1,21 +1,39 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { Table } from './components/Table';
-import { Search } from './components/Search';
+import React, { useState, useEffect } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { Panel } from './components/Panel';
 import { Map } from './components/Map';
 import { VEHICLE_STATUS_DATA } from './utils/queries';
 
 export const App = () => {
-  const { loading, error, data } = useQuery(VEHICLE_STATUS_DATA);
+  const [data, setData] = useState({});
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
+  const [getVehicleStatusData, { loading, error }] = useLazyQuery(VEHICLE_STATUS_DATA, {
+    fetchPolicy: 'network-only',
+    onCompleted: (data) => {
+      setData(data);
+    },
+  });
+
+  useEffect(() => {
+    getVehicleStatusData({ variables: { bike_id: '' } });
+  }, []);
 
   return (
     <>
-      {/* {!!data ? <Table data={data} /> : null} */}
-      {/* <Search /> */}
-      <Map center={{ lat: 38.876441, lng: -77.070021 }} />
+      {!!data.vehicles && (
+        <Panel
+          loading={loading}
+          error={error}
+          data={data}
+          getVehicleStatusData={getVehicleStatusData}
+        />
+      )}
+      {!!data.vehicles && (
+        <Map
+          data={data}
+          center={{ lat: 38.876441, lng: -77.070021 }}
+        />
+      )}
     </>
   );
 };
