@@ -5,6 +5,7 @@ export const Search = ({ getVehicleStatusData }) => {
 
   const clickHandler = (e) => {
     e.preventDefault();
+    setEntry('');
     !!entry.length ? getVehicleStatusData({ variables: { bike_id: entry } }) : null;
   };
 

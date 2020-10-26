@@ -1,9 +1,35 @@
-$primary-color: #fff;
-$bg: #000;
+@import './styles/reset.scss';
+@import './styles/variables.scss';
+@import './styles/fonts.scss';
 
-body {
-  margin: 0;
-  overflow: hidden;
+button,
+button:hover,
+button:focus,
+button:active {
+  border: 0.1rem solid #ffffff5c;
+  color: $primary-color-1;
+  background-color: #000000b3;
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.1rem;
+  width: 6rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: $primary-color-2;
+}
+
+input,
+input:hover,
+input:focus,
+input:active {
+  border: 0.1rem solid #ffffff5c;
+  color: $primary-color-1;
+  background-color: #2d2d2db5;
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.1rem;
 }
 
 .status-info {
@@ -13,17 +39,17 @@ body {
 .panel {
   z-index: 10;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: $black-transparent-1;
   right: 0;
-  color: #fff;
+  color: $primary-color-1;
   width: 30rem;
   height: 100vh;
   display: grid;
-  grid-template-rows: 7vh 5vh 88vh;
+  grid-template-rows: 8vh 5vh 87vh;
 
   .header {
-    background-color: #252525c7;
-    border-bottom: .2rem solid #000;
+    background-color: $black-transparent-1;
+    border-bottom: 0.2rem solid $primary-color-2;
   }
 
   .panel-menu {
@@ -38,34 +64,37 @@ body {
   }
 }
 
-table {
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: .1rem solid rgba(255, 255, 255, 0.15);
-  th,
-  td {
-    padding: 0.5rem;
-    // border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  }
+.table-container {
+  overflow: auto;
+  height: 87vh;
+  -ms-overflow-style: none;
+  table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid $white-transparent-2;
+    th,
+    td {
+      padding: 0.5rem;
+    }
 
-  thead {
-    tr {
-      background-color: rgba(255, 255, 255, 0.15);
+    thead {
+      tr {
+        background-color: $black-transparent-2;
+      }
+    }
+
+    tbody {
+      tr:hover {
+        background-color: rgba(150, 150, 150, 0.55);
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: $black-transparent-2;
     }
   }
-
-  tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-}
-
-.table-container {
-  // padding: 1rem;
-  overflow: auto;
-  height: 88vh;
-  -ms-overflow-style: none;
 }
 
 .table-container::-webkit-scrollbar {
@@ -75,9 +104,9 @@ table {
 .marker {
   width: 4rem;
   p {
-    background-color: rgba(0, 0, 0, 0.75);
-    color: $primary-color;
-    border: 0.2rem solid $primary-color;
+    background-color: $black-transparent-1;
+    color: $primary-color-1;
+    border: 0.2rem solid $primary-color-1;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
     font-size: 0.9rem;
