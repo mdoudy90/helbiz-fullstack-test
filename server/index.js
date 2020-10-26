@@ -25,4 +25,6 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
+
 app.listen(PORT, () => console.log(`⚡️⚡️🛴 Server listening on http://localhost:${PORT} 🛴⚡️⚡️`));
