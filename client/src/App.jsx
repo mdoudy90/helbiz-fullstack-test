@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { Table } from './components/Table';
 import { Search } from './components/Search';
+import { Map } from './components/Map';
 import { VEHICLE_STATUS_DATA } from './utils/queries';
 
 export const App = () => {
@@ -12,8 +13,9 @@ export const App = () => {
 
   return (
     <>
-      {!!data ? <Table data={data} /> : null}
+      {/* {!!data ? <Table data={data} /> : null} */}
       {/* <Search /> */}
+      <Map center={{ lat: 38.876441, lng: -77.070021 }} />
     </>
   );
 };
