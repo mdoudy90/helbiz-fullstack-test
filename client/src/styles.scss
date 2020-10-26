@@ -1,0 +1,115 @@
+@import './styles/reset.scss';
+@import './styles/variables.scss';
+@import './styles/fonts.scss';
+
+button,
+button:hover,
+button:focus,
+button:active {
+  border: 0.1rem solid #ffffff5c;
+  color: $primary-color-1;
+  background-color: #000000b3;
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.1rem;
+  width: 6rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: $primary-color-2;
+}
+
+input,
+input:hover,
+input:focus,
+input:active {
+  border: 0.1rem solid #ffffff5c;
+  color: $primary-color-1;
+  background-color: #2d2d2db5;
+  font-size: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.1rem;
+}
+
+.status-info {
+  padding: 1rem;
+}
+
+.panel {
+  z-index: 10;
+  position: absolute;
+  background-color: $black-transparent-1;
+  right: 0;
+  color: $primary-color-1;
+  width: 30rem;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 8vh 5vh 87vh;
+
+  .header {
+    background-color: $black-transparent-1;
+    border-bottom: 0.2rem solid $primary-color-2;
+  }
+
+  .panel-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    padding: 0 1rem;
+  }
+}
+
+.table-container {
+  overflow: auto;
+  height: 87vh;
+  -ms-overflow-style: none;
+  table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0.1rem solid $white-transparent-2;
+    th,
+    td {
+      padding: 0.5rem;
+    }
+
+    thead {
+      tr {
+        background-color: $black-transparent-2;
+      }
+    }
+
+    tbody {
+      tr:hover {
+        background-color: rgba(150, 150, 150, 0.55);
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: $black-transparent-2;
+    }
+  }
+}
+
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+
+.marker {
+  width: 4rem;
+  p {
+    background-color: $black-transparent-1;
+    color: $primary-color-1;
+    border: 0.2rem solid $primary-color-1;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+button, input {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:hover, input:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active, input:active {
+  outline: none;
+  border: none;
+}
+
+button:focus, input:focus {
+  outline: 0;
+}
