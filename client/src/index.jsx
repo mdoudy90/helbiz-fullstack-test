@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import { App } from './App';
 import './styles.scss';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-const BEARER_TOKEN = 'Bearer ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20=';
+import { BEARER_TOKEN } from '../config';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
